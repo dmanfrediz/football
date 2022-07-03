@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-3dluvi@$s7$0e8*5e5(rtauhs4birit&&aqt*k65%0+eo5jb&*
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['football-env.eba-th3ywaab.us-west-2.elasticbeanstalk.com']
+ALLOWED_HOSTS = ['127.0.0.1', 'football-env.eba-th3ywaab.us-west-2.elasticbeanstalk.com']
 
 
 # Application definition
@@ -68,7 +68,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'football_app/wsgi.py'
+WSGI_APPLICATION = 'football_app.wsgi.application'
 
 
 # Database
@@ -120,9 +120,6 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATIC_ROOT = 'static'
-STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'static'),
-]
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
