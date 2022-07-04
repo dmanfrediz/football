@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-3dluvi@$s7$0e8*5e5(rtauhs4birit&&aqt*k65%0+eo5jb&*
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['127.0.0.1', 'football-env.eba-th3ywaab.us-west-2.elasticbeanstalk.com']
+ALLOWED_HOSTS = ['127.0.0.1', 'football-env.eba-th3ywaab.us-west-2.elasticbeanstalk.com', 'augur.football']
 
 
 # Application definition
