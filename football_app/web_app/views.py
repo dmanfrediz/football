@@ -9,10 +9,10 @@ from .models import Post
 
 # Create your views here.
 
-def say_hello(request):
-    user = gt.getuser()
-    return render(request, 'hello_football.html', context={'name': '{}'.format(user), 'title': 'Football App',
-                                                           'posts': Post.objects.all()})
+# def say_hello(request):
+#     user = gt.getuser()
+#     return render(request, 'hello_football.html', context={'name': '{}'.format(user), 'title': 'Football App',
+#                                                            'posts': Post.objects.all()})
 
 
 def table(request):
@@ -23,7 +23,10 @@ def table(request):
     return render(request, 'table_format.html', context)
 
 
-# def home_page(request):
-#     return render(request, 'hello_football.html',
-#                   context={'date': str(dt.date.today()), 'title': 'Football App',
-#                            'posts': Post.objects.all()})
+def home_page_original(request):
+    return render(request, 'hello_football.html',
+                  context={'date': str(dt.date.today()), 'title': 'Football App'})
+
+
+def home_page(request):
+    return render(request, 'home_augur.html')
