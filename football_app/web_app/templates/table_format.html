@@ -1,36 +1,36 @@
 {% extends "nav.html" %}
 
 {% block content %}
-<div class="p-3 mb-2 bg-secondary bg-gradient text-white">
-<div class="container"><p class="font-monospace"> This is a table with random integers.</p>
-	<p class="fst-italic">Refresh to update</p>
+<div class="p-3 mb-2 bg-secondary bg-gradient text-white vh-100">
+	<div class="container"><p class="font-monospace"> This is a table with random integers.</p>
+		<p class="fst-italic">Refresh to update</p>
+	</div>
+		<br>
+	<div class="container">
+		<table class="table table-dark table-striped">
+			<thead>
+			<tr>
+				<th>A</th>
+				<th>B</th>
+				<th>C</th>
+				<th>D</th>
+			</tr>
+			</thead>
+			<tbody>
+			<!-- jinja2 Technique -->
+			{% if d %}
+			{% for i in d %}
+			<tr>
+				<td>{{i.A}}</td>
+				<td>{{i.B}}</td>
+				<td>{{i.C}}</td>
+				<td>{{i.D}}</td>
+			</tr>
+			{% endfor %}
+			{% endif %}
+			</tbody>
+		</table>
+	</div>
 </div>
-	<br>
-<div class="container">
-	<table class="table table-dark table-striped">
-		<thead>
-		<tr>
-			<th>A</th>
-			<th>B</th>
-			<th>C</th>
-			<th>D</th>
-		</tr>
-		</thead>
-		<tbody>
-		<!-- jinja2 Technique -->
-		{% if d %}
-		{% for i in d %}
-		<tr>
-			<td>{{i.A}}</td>
-			<td>{{i.B}}</td>
-			<td>{{i.C}}</td>
-			<td>{{i.D}}</td>
-		</tr>
-		{% endfor %}
-		{% endif %}
-		</tbody>
-	</table>
-</div>
-</div>>
 
 {% endblock content %}
