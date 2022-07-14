@@ -1,7 +1,7 @@
 {% extends "nav.html" %}
 
 {% block content %}
-<div class="p-3 mb-2 bg-secondary bg-gradient text-white vh-100">
+<div class="p-3 mb-2 bg-secondary bg-gradient text-white vh-1000">
 	<div class="container">
 			<p class="u-custom-font u-font-pt-sans u-text u-text-body-alt-color u-text-default u-text-2"> This page shows a sample format of how data is presented to users.
 				We pull data from a variety of sources including DraftKings public API, ESPN, as well as some privately aggregated data points that go into our models. <br> <br>
@@ -45,7 +45,7 @@
 		</table>
 		<br>
 		<p class="navbar-brand-augur-tiny text-black">Example Chart:</p>
-			<div class="container">
+			<div class="container bg-white">
 				<canvas id="myChart" width="500" height="400"></canvas>
 
 				<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js" integrity="sha256-Uv9BNBucvCPipKQ2NS9wYpJmi8DTOEfTA/nH2aoJALw=" crossorigin="anonymous"></script>
@@ -62,6 +62,8 @@
 						});
 					});
 				</script>
+				<br>
+				<br>
 			</div>
 	</div>
 </div>

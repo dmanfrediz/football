@@ -9,6 +9,7 @@ import json
 import datetime as dt
 from django.views.generic import TemplateView
 from chartjs.views.lines import BaseLineChartView, BaseLineOptionsChartView
+from chartjs.colors import next_color
 
 
 # Create your views here.
@@ -49,7 +50,7 @@ def fantasy_qb(request):
     return render(request, 'fantasy_qb.html', context)
 
 
-class LineChartJSONView(BaseLineChartView):
+class LineChartJSONView(BaseLineOptionsChartView, ABC):
 
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
@@ -66,14 +67,25 @@ class LineChartJSONView(BaseLineChartView):
         #     }
         # self.color = self._colors[color]
 
+        self._colors = [
+            (122, 159, 191),  # Light blue
+            (163, 191, 63),  # Light green
+            (171, 9, 0),  # Red
+            (202, 201, 197),  # Light gray
+            (166, 78, 46),  # Light orange
+            (255, 190, 67),  # Yellow
+            (140, 5, 84),  # Pink
+            (166, 133, 93),  # Light brown
+            (75, 64, 191),  # Red blue
+            (237, 124, 60),  # orange
+            (95, 158, 160)  # Cadet blue
+        ]
+
     def get_context_data(self, **kwargs):
         context = super(BaseLineChartView, self).get_context_data(**kwargs)
-        context.update({"labels": self.get_labels(), "datasets": self.get_datasets(), "options": {"legend": {
-                "labels": {
-                    "fontColor": "rfb(0,0,0)",
-                    "fontSize": 30
-                }
-            }}})
+        context.update({"labels": self.get_labels(), "datasets": self.get_datasets(), "options": {"yAxes": [{
+            "gridLines": {"zeroLineColor": '#ffcc33'}}]
+            }})
         return context
 
     def get_labels(self):
@@ -100,9 +112,12 @@ class LineChartJSONView(BaseLineChartView):
                 [41, 92, 18, 3, 73, 87, 92],
                 [87, 21, 94, 3, 90, 13, 65]]
 
+    def get_colors(self, colors):
+        return next_color(colors)
+
     def get_datasets(self):
         datasets = []
-        color_generator = self.get_colors()
+        color_generator = self.get_colors(self._colors)
         data = self.get_data()
         providers = self.get_providers()
         num = len(providers)
