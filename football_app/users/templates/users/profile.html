@@ -2,12 +2,14 @@
 {% load static %}
 
 {% block content %}
-<link rel="stylesheet" type="text/css" href="{% static 'playground/profile.css' %}">
-      <div class="container-fluid">
-        <img class="rounded-circle account-img" src="{% static 'media/default.jpg' %}">
-        <div class="media-body">
-          <h2 class="account-heading">{{ user.username }}</h2>
-          <p class="text-secondary">{{ user.email }}</p>
-        </div>
-      </div>
+<div class="p-3 mb-2 bg-secondary bg-gradient text-white vh-100">
+    <link rel="stylesheet" type="text/css" href="{% static 'playground/profile.css' %}">
+          <div class="container-fluid">
+            <img class="rounded-circle account-img" src="{% static 'media/default.jpg' %}">
+            <div class="media-body">
+              <h2 class="account-heading">Welcome {{ user.username }}! </h2>
+              <p class="navbar-brand-augur-small">Email: {{ user.email }}</p>
+            </div>
+          </div>
+</div>
 {% endblock content %}

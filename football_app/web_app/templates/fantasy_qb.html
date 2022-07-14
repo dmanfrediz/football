@@ -1,0 +1,65 @@
+{% extends "nav.html" %}
+
+{% block content %}
+<div class="p-3 mb-2 bg-secondary bg-gradient text-white vh-1000">
+	<div class="container"><p class="font-monospace"> QB Analysis: 2021 Regular Season Away Games</p>
+		<p class="fst-italic">QB Performance changes vs. Price changes in season away games. (Fantasy price data collected from Draft Kings)<br></p>
+		<p> <b>Notes:</b> <br> </p>
+				<p>&#9642; Higher net_value = lower fantasy roster price and better performance on road. <br></p>
+				<p>&#9642; road_consistency is the difference between performance standard deviation for home games and away games. Closer to  0 = more consistent.</p>
+	</div>
+	<div class="container">
+		<table class="table table-condensed table-dark table-striped">
+			<thead>
+			<tr>
+				<th>Team</th>
+				<th>Name</th>
+				<th>net_value</th>
+				<th>road_consistency</th>
+				<th>road_performance_avg</th>
+				<th>road_price_avg</th>
+				<th>DKP_home_mean</th>
+			</tr>
+			</thead>
+			<tbody>
+			<!-- jinja2 Technique -->
+			{% if d %}
+			{% for i in d %}
+			<tr>
+				<td>{{i.Team}}</td>
+				<td>{{i.Name}}</td>
+				<td>{{i.net_value}}</td>
+				<td>{{i.road_consistency}}</td>
+				<td>{{i.road_performance_avg}}</td>
+				<td>{{i.road_price_avg}}</td>
+				<td>{{i.DKP_home_mean}}</td>
+			</tr>
+			{% endfor %}
+			{% endif %}
+			</tbody>
+		</table>
+		<br>
+<!--		<div class='container'>-->
+<!--			<h1 class="navbar-brand-augur-tiny">Example Chart</h1>-->
+
+<!--            <canvas id="myChart" width="500" height="400"></canvas>-->
+
+<!--            <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js" integrity="sha256-Uv9BNBucvCPipKQ2NS9wYpJmi8DTOEfTA/nH2aoJALw=" crossorigin="anonymous"></script>-->
+<!--            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.css" integrity="sha256-aa0xaJgmK/X74WM224KMQeNQC2xYKwlAt08oZqjeF0E=" crossorigin="anonymous" />-->
+<!--            &lt;!&ndash; jQuery &ndash;&gt;-->
+<!--            <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>-->
+
+<!--            <script type="text/javascript">-->
+<!--                $.get('{% url "line_chart_json" %}', function(data) {-->
+<!--                    var ctx = $("#myChart").get(0).getContext("2d");-->
+<!--                    new Chart(ctx, {-->
+<!--                        type: 'line',-->
+<!--                        data: data-->
+<!--                    });-->
+<!--                });-->
+<!--            </script>-->
+<!--		</div>-->
+	</div>
+</div>
+
+{% endblock content %}
