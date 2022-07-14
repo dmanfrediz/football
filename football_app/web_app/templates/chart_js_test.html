@@ -1,0 +1,31 @@
+{% extends "nav.html" %}
+
+{% block content %}
+<html>
+    <div class="container-sm">
+        <head>
+            <title>django-chartjs line chart demo</title>
+        </head>
+        <body>
+            <h1>Some Line Charts loaded in Ajax!</h1>
+
+            <canvas id="myChart" width="500" height="400"></canvas>
+
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js" integrity="sha256-Uv9BNBucvCPipKQ2NS9wYpJmi8DTOEfTA/nH2aoJALw=" crossorigin="anonymous"></script>
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.css" integrity="sha256-aa0xaJgmK/X74WM224KMQeNQC2xYKwlAt08oZqjeF0E=" crossorigin="anonymous" />
+            <!-- jQuery -->
+            <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+
+            <script type="text/javascript">
+                $.get('{% url "line_chart_json" %}', function(data) {
+                    var ctx = $("#myChart").get(0).getContext("2d");
+                    new Chart(ctx, {
+                        type: 'line',
+                        data: data,
+                    });
+                });
+            </script>
+        </body>
+    </div>
+</html>
+{% endblock content %}

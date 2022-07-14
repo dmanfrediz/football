@@ -40,7 +40,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'web_app',
     'users.apps.UsersConfig',
-    'crispy_forms'
+    'crispy_forms',
+    'chartjs'
 ]
 
 MIDDLEWARE = [
