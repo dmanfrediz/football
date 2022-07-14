@@ -11,3 +11,4 @@ django-crispy-forms
 Pillow
 pymongo
 dnspython
+django-chartjs
